@@ -4,7 +4,9 @@ import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 type Props = { onClose: () => void }
-type Status = 'idle' | 'submitting' | 'success' | 'error'
+type Status = 'idle' | 'submitting' | 'success' | 'duplicate' | 'error'
+
+const STORAGE_KEY = 'rsvp_submitted'
 
 const backdropVariants = {
     hidden: { opacity: 0 },
@@ -46,7 +48,11 @@ const labelStyle: React.CSSProperties = {
 }
 
 export default function RSVPModal({ onClose }: Props) {
-    const [status, setStatus] = useState<Status>('idle')
+    const [status, setStatus] = useState<Status>(() =>
+        typeof window !== 'undefined' && localStorage.getItem(STORAGE_KEY) === '1'
+            ? 'duplicate'
+            : 'idle'
+    )
     const [form, setForm] = useState({ name: '', phone: '', guests: '1', attending: 'yes' })
     const backdropRef = useRef<HTMLDivElement>(null)
 
@@ -69,7 +75,13 @@ export default function RSVPModal({ onClose }: Props) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...form, guests: Number(form.guests) }),
             })
+            if (res.status === 409) {
+                localStorage.setItem(STORAGE_KEY, '1')
+                setStatus('duplicate')
+                return
+            }
             if (!res.ok) throw new Error()
+            localStorage.setItem(STORAGE_KEY, '1')
             setStatus('success')
         } catch {
             setStatus('error')
@@ -174,6 +186,37 @@ export default function RSVPModal({ onClose }: Props) {
                             onClick={onClose}
                             style={{
                                 background: '#365744', color: '#fff', border: 'none',
+                                borderRadius: '9999px', padding: '0.5rem 1.75rem',
+                                fontFamily: 'var(--font-lato)', fontWeight: 700,
+                                fontSize: '0.8rem', cursor: 'pointer', letterSpacing: '0.07em',
+                            }}
+                        >
+                            Close
+                        </button>
+                    </div>
+                ) : status === 'duplicate' ? (
+                    <div style={{ textAlign: 'center', padding: '0.75rem 0 0.5rem' }}>
+                        <p style={{
+                            fontFamily: 'var(--font-dancing)',
+                            color: '#a8825c',
+                            fontSize: 'clamp(1.4rem, 6vw, 1.8rem)',
+                            margin: '0 0 0.5rem',
+                        }}>
+                            Already RSVP&apos;d!
+                        </p>
+                        <p style={{
+                            fontFamily: 'var(--font-lato)',
+                            color: '#5c5c5c',
+                            fontSize: '0.8rem',
+                            margin: '0 0 1.5rem',
+                            lineHeight: 1.5,
+                        }}>
+                            We already have your response on file.
+                        </p>
+                        <button
+                            onClick={onClose}
+                            style={{
+                                background: '#a8825c', color: '#fff', border: 'none',
                                 borderRadius: '9999px', padding: '0.5rem 1.75rem',
                                 fontFamily: 'var(--font-lato)', fontWeight: 700,
                                 fontSize: '0.8rem', cursor: 'pointer', letterSpacing: '0.07em',

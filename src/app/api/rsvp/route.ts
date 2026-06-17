@@ -21,7 +21,11 @@ export async function POST(request: Request) {
         `
 
         return Response.json({ success: true }, { status: 201 })
-    } catch (err) {
+    } catch (err: unknown) {
+        // Postgres unique violation — phone number already submitted
+        if (typeof err === 'object' && err !== null && 'code' in err && (err as { code: string }).code === '23505') {
+            return Response.json({ error: 'duplicate' }, { status: 409 })
+        }
         console.error('[/api/rsvp]', err)
         return Response.json({ error: 'Server error' }, { status: 500 })
     }
