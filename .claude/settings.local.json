@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/rajpatel/WebstormProjects/babyshower/src -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.jsx\" -o -name \"*.js\" \\\\\\) 2>/dev/null | head -30)",
+      "Bash(test -f /Users/rajpatel/WebstormProjects/babyshower/public/images/final_photo.png && echo \"File exists\" || echo \"File not found\")",
+      "Bash(npm install framer-motion @vercel/postgres zod 2>&1 | tail -5)",
+      "Bash(npm run build 2>&1)",
+      "Bash(node -e \"const z = require\\('zod'\\); console.log\\(z.ZodError.prototype.hasOwnProperty\\('issues'\\), z.VERSION\\)\")",
+      "Bash(node -e \"const {z} = require\\('zod'\\); const r = z.string\\(\\).safeParse\\(1\\); console.log\\(Object.keys\\(r.error\\)\\)\")",
+      "Bash(node -e \"const {z} = require\\('zod'\\); const r = z.string\\(\\).safeParse\\(1\\); console.log\\(JSON.stringify\\(r.error\\)\\)\")",
+      "Bash(node -e \"const {z} = require\\('zod'\\); const r = z.string\\(\\).safeParse\\(1\\); console.log\\(r.error.issues\\)\")",
+      "Bash(npm install qrcode.react 2>&1 | tail -5)",
+      "Bash(node -e \"require\\('qrcode.react'\\); console.log\\('ok'\\)\" 2>&1)",
+      "Bash(npx tsc --noEmit 2>&1)"
+    ]
+  }
+}
