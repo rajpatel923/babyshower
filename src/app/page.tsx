@@ -147,12 +147,12 @@ export default function MobileBabyShowerInvite() {
                 </motion.div>
 
                 {/* Buttons Row */}
-                <motion.div {...fadeUp(0.6)} className="mt-4 flex gap-3 justify-center">
+                <motion.div {...fadeUp(0.6)} className="mt-4 flex flex-wrap gap-2 justify-center">
                     <button
                         onClick={() => setRsvpOpen(true)}
                         style={{
                             background: '#365744', color: '#fff', border: 'none',
-                            borderRadius: '9999px', padding: '0.5rem 1.5rem',
+                            borderRadius: '9999px', padding: '0.45rem 1rem',
                             fontFamily: 'var(--font-lato)', fontWeight: 700,
                             fontSize: 'clamp(0.7rem, 3vw, 0.85rem)', letterSpacing: '0.07em',
                             cursor: 'pointer',
@@ -160,20 +160,40 @@ export default function MobileBabyShowerInvite() {
                     >
                         RSVP
                     </button>
-                    <a
-                        href="https://maps.google.com/?q=2000+Billy+G+Webb+Dr,+Portland,+TX"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => {
+                            const address = '2000+Billy+G+Webb+Dr,+Portland,+TX+78374'
+                            const isApple = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && 'ontouchend' in document
+                            const url = isApple
+                                ? `https://maps.apple.com/?q=${address}`
+                                : `https://maps.google.com/?q=${address}`
+                            window.open(url, '_blank', 'noopener,noreferrer')
+                        }}
                         style={{
                             color: '#365744', background: 'transparent',
                             border: '2px solid #365744', borderRadius: '9999px',
-                            padding: '0.5rem 1.5rem',
+                            padding: '0.45rem 1rem',
+                            fontFamily: 'var(--font-lato)', fontWeight: 700,
+                            fontSize: 'clamp(0.7rem, 3vw, 0.85rem)', letterSpacing: '0.07em',
+                            cursor: 'pointer', display: 'inline-flex', alignItems: 'center',
+                        }}
+                    >
+                        Location
+                    </button>
+                    <a
+                        href="https://www.amazon.com/baby-reg/priya-patel-october-2026-sanantonio/37HB6YQSPR7BK"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            color: '#fff', background: '#a37c58',
+                            border: 'none', borderRadius: '9999px',
+                            padding: '0.45rem 1rem',
                             fontFamily: 'var(--font-lato)', fontWeight: 700,
                             fontSize: 'clamp(0.7rem, 3vw, 0.85rem)', letterSpacing: '0.07em',
                             textDecoration: 'none', display: 'inline-flex', alignItems: 'center',
                         }}
                     >
-                        Location
+                        Registry
                     </a>
                 </motion.div>
 
