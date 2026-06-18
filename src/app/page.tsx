@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Transition } from 'framer-motion'
-import { QRCodeSVG } from 'qrcode.react'
 import RSVPModal from '@/components/RSVPModal'
 
 const BASE: Transition = { repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }
@@ -34,20 +33,6 @@ export default function MobileBabyShowerInvite() {
         <div className="relative w-full h-[100dvh] bg-[#fdfdfc] overflow-hidden flex flex-col items-center justify-center select-none">
 
             {/* --- BACKGROUND WATERCOLORS --- */}
-            <Image
-                src="/images/light_green_waterdrop.png"
-                alt=""
-                width={400}
-                height={400}
-                className="absolute top-[-5%] left-[-25%] w-[85%] opacity-35 pointer-events-none"
-            />
-            <Image
-                src="/images/light_blue_waterdrop.png"
-                alt=""
-                width={400}
-                height={400}
-                className="absolute top-[25%] right-[-15%] w-[65%] opacity-25 pointer-events-none"
-            />
 
 
             {/*top with banner*/}
@@ -62,6 +47,7 @@ export default function MobileBabyShowerInvite() {
                     alt=""
                     width={400}
                     height={400}
+                    loading="eager"
                     className="absolute top-[-130] right-[-200] w-full pointer-events-none"
                 />
                 <Image
@@ -69,6 +55,7 @@ export default function MobileBabyShowerInvite() {
                     alt=""
                     width={400}
                     height={400}
+                    loading="eager"
                     className="absolute top-[-120] left-[-230] w-full pointer-events-none]"
                 />
             </div>
@@ -88,6 +75,7 @@ export default function MobileBabyShowerInvite() {
                     alt=""
                     width={400}
                     height={400}
+                    loading="eager"
                     className="absolute top-[-12%] left-[-60%]  rotate-[-75deg] w-full pointer-events-none"
                 />
                 <Image
@@ -95,6 +83,7 @@ export default function MobileBabyShowerInvite() {
                     alt=""
                     width={400}
                     height={400}
+                    loading="eager"
                     className="absolute top-[-5%] right-[-70%] rotate-[75deg]  w-full pointer-events-none]"
                 />
             </div>
@@ -112,7 +101,8 @@ export default function MobileBabyShowerInvite() {
                     alt=""
                     width={400}
                     height={400}
-                    className="absolute top-[-12%] left-1/2 -translate-x-1/2 rotate-[75deg] w-full pointer-events-none]"
+                    loading="eager"
+                    className="absolute top-[-5%] left-1/2 -translate-x-1/2  scale-75 rotate-[-0-deg] w-full pointer-events-none]"
                 />
             </div>
 
@@ -146,12 +136,12 @@ export default function MobileBabyShowerInvite() {
                 <motion.div {...fadeUp(0.5)} className="flex items-center justify-center w-[90%] my-1">
                     <div className="h-px bg-[#a37c58] flex-1 opacity-50"></div>
                     <div className="px-3 flex items-center space-x-3 text-[#5c5c5c] font-[family-name:var(--font-lato)]">
-                        <span className="text-[clamp(0.6rem,2.5vw,0.8rem)] font-bold tracking-widest">SUNDAY</span>
+                        <span className="text-[clamp(0.8rem,2.5vw,0.8rem)] font-bold tracking-widest">SUNDAY</span>
                         <div className="flex flex-col items-center">
-                            <span className="font-[family-name:var(--font-playfair)] text-[clamp(2rem,8vw,3rem)] font-bold text-[#8c6d4b] leading-none">09</span>
-                            <span className="text-[clamp(0.5rem,2vw,0.6rem)] font-bold tracking-widest mt-1">AUGUST</span>
+                            <span className="font-[family-name:var(--font-playfair)] text-[clamp(2.5rem,8vw,3rem)] font-bold text-[#8c6d4b] leading-none">09</span>
+                            <span className="text-[clamp(0.6rem,2vw,0.6rem)] font-bold tracking-widest mt-1">AUGUST</span>
                         </div>
-                        <span className="text-[clamp(0.6rem,2.5vw,0.8rem)] font-bold tracking-widest">AT 10:00 AM</span>
+                        <span className="text-[clamp(0.8rem,2.5vw,0.8rem)] font-bold tracking-widest">AT 10:00 AM</span>
                     </div>
                     <div className="h-px bg-[#a37c58] flex-1 opacity-50"></div>
                 </motion.div>
@@ -187,38 +177,89 @@ export default function MobileBabyShowerInvite() {
                     </a>
                 </motion.div>
 
-                {/* QR Code Row */}
-                <motion.div {...fadeUp(0.7)} className="mt-5 flex items-center gap-3">
-                    <div className="flex flex-col items-center p-1">
-                        <QRCodeSVG value="https://www.amazon.com/baby" size={45} bgColor="transparent" fgColor="#365744" />
-                        <span className="text-[8px] text-[#5c5c5c] mt-1 uppercase tracking-wider font-bold">Scan Me</span>
-                    </div>
-                    <span className="font-[family-name:var(--font-dancing)] text-[#8c6d4b] text-[clamp(1rem,4.5vw,1.3rem)]">
-            Registered at Amazon
-          </span>
+            </div>
+
+
+
+            {/* --- BOTTOM DECORATIONS --- */}
+            {/*left side*/}
+            <div>
+                <Image
+                    src="/images/light_blue_waterdrop.png"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="absolute top-[20%] left-[-70%]  pointer-events-none"
+                />
+                <motion.div className="absolute top-[49%] left-[-10%] w-[50%] max-w-[130px] z-10 scale-150 rotate-3" {...float([0, -10, 0], 3.5, 0.8)}>
+                    <Image src="/images/ballons.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />
+                </motion.div>
+                <motion.div className="absolute bottom-[-3%] left-[-6%] w-[28%] max-w-[140px] z-40" {...float([0, -8, 0], 4.5, 0.2)}>
+                    <Image src="/images/box_baby.png" alt="" width={200} height={200} className="w-full h-auto object-contain" />
                 </motion.div>
             </div>
 
-            {/* --- BOTTOM DECORATIONS --- */}
-            <motion.div className="absolute bottom-[-1%] left-[-4%] w-[28%] max-w-[140px] z-40" {...float([0, -8, 0], 4.5, 0.2)}>
-                <Image src="/images/box_baby.png" alt="" width={200} height={200} className="w-full h-auto object-contain" />
-            </motion.div>
+            <div>
+                <Image
+                    src="/images/light_blue_waterdrop.png"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="absolute top-[20%] right-[-65%] pointer-events-none"
+                />
+                <motion.div className="absolute top-[40%] right-[-6%] w-[28%] max-w-[120px] z-20 rotate-[-25deg]" {...sway([-3, 3, -3], 5.5, 0.5)}>
+                    <Image src="/images/baby_cloths.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />
+                </motion.div>
+            </div>
 
-            <motion.div className="absolute top-[45%] right-[-6%] w-[25%] max-w-[120px] z-20" {...sway([-3, 3, -3], 5.5, 0.5)}>
-                <Image src="/images/baby_cloths.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />
-            </motion.div>
 
-            <motion.div className="absolute bottom-[16%] right-[-2%] w-[26%] max-w-[130px] z-10" {...float([0, -10, 0], 3.5, 0.8)}>
-                <Image src="/images/ballons.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />
-            </motion.div>
 
-            <motion.div className="absolute bottom-[-2%] right-[4%] w-[22%] max-w-[110px] z-40" {...float([0, -5, 0], 5, 1)}>
-                <Image src="/images/gift_box.png" alt="" width={150} height={150} className="w-full h-auto object-contain" />
-            </motion.div>
+            <div>
+                <motion.div className="absolute bottom-[5%] right-[-8%] w-[26%] max-w-[130px] z-10 rotate-12 scale-125" {...float([0, -10, 0], 3.5, 0.8)}>
+                    <Image src="/images/ballons.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />
+                </motion.div>
+                <motion.div className="absolute bottom-[-4%] right-[-6%] w-[28%] max-w-[110px] z-40" {...float([0, -5, 0], 5, 1)}>
+                    <Image src="/images/gift_box.png" alt="" width={150} height={150} className="w-full h-auto object-contain" />
+                </motion.div>
+            </div>
 
-            <motion.div className="absolute bottom-[-3%] left-[15%] w-[50%] max-w-[250px] z-20" {...float([0, -4, 0], 6, 0.5)}>
-                <Image src="/images/rainbow.png" alt="" width={300} height={150} className="w-full h-auto object-contain" />
-            </motion.div>
+            <div>
+                <motion.div className="absolute bottom-[-10%] left-[25%] w-[50%] max-w-[250px] z-20" {...float([0, -4, 0], 6, 0.5)}>
+                    <Image src="/images/rainbow.png" alt="" width={300} height={150} className="w-full h-auto object-contain" />
+                </motion.div>
+            </div>
+
+            <div>
+                <Image
+                    src="/images/light_blue_waterdrop.png"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="absolute bottom-[-30%] left-[-55%] pointer-events-none"
+                />
+                <Image
+                    src="/images/light_blue_waterdrop.png"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="absolute bottom-[-37%] left-[-25%] pointer-events-none"
+                />
+                <Image
+                    src="/images/light_blue_waterdrop.png"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="absolute bottom-[-40%] right-[-5%]  pointer-events-none"
+                />
+                <Image
+                    src="/images/light_blue_waterdrop.png"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="absolute bottom-[-20%] right-[-68%]  pointer-events-none"
+                />
+
+            </div>
 
             <AnimatePresence>
                 {rsvpOpen && <RSVPModal key="rsvp-modal" onClose={() => setRsvpOpen(false)} />}

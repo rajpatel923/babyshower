@@ -48,11 +48,7 @@ const labelStyle: React.CSSProperties = {
 }
 
 export default function RSVPModal({ onClose }: Props) {
-    const [status, setStatus] = useState<Status>(() =>
-        typeof window !== 'undefined' && localStorage.getItem(STORAGE_KEY) === '1'
-            ? 'duplicate'
-            : 'idle'
-    )
+    const [status, setStatus] = useState<Status>('idle')
     const [form, setForm] = useState({ name: '', phone: '', guests: '1', attending: 'yes' })
     const backdropRef = useRef<HTMLDivElement>(null)
 
