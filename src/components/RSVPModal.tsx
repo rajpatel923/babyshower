@@ -50,6 +50,7 @@ const labelStyle: React.CSSProperties = {
 export default function RSVPModal({ onClose }: Props) {
     const [status, setStatus] = useState<Status>('idle')
     const [form, setForm] = useState({ name: '', phone: '', guests: '1', attending: 'yes' })
+    const [submittedAttending, setSubmittedAttending] = useState('yes')
     const backdropRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -78,6 +79,7 @@ export default function RSVPModal({ onClose }: Props) {
             }
             if (!res.ok) throw new Error()
             localStorage.setItem(STORAGE_KEY, '1')
+            setSubmittedAttending(form.attending)
             setStatus('success')
         } catch {
             setStatus('error')
@@ -163,11 +165,11 @@ export default function RSVPModal({ onClose }: Props) {
                     <div style={{ textAlign: 'center', padding: '0.75rem 0 0.5rem' }}>
                         <p style={{
                             fontFamily: 'var(--font-dancing)',
-                            color: '#365744',
+                            color: submittedAttending === 'no' ? '#a8825c' : '#365744',
                             fontSize: 'clamp(1.6rem, 7vw, 2rem)',
                             margin: '0 0 0.5rem',
                         }}>
-                            Thank you!
+                            {submittedAttending === 'no' ? 'We\'ll miss you!' : 'Thank you!'}
                         </p>
                         <p style={{
                             fontFamily: 'var(--font-lato)',
@@ -176,7 +178,11 @@ export default function RSVPModal({ onClose }: Props) {
                             margin: '0 0 1.5rem',
                             lineHeight: 1.5,
                         }}>
-                            We can&apos;t wait to celebrate with you.
+                            {submittedAttending === 'no'
+                                ? 'Sorry you can\'t make it. We appreciate you letting us know!'
+                                : submittedAttending === 'maybe'
+                                    ? 'Thanks for letting us know. We hope to see you there!'
+                                    : 'We can\'t wait to celebrate with you.'}
                         </p>
                         <button
                             onClick={onClose}
