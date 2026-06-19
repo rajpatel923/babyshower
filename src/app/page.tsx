@@ -199,13 +199,13 @@ export default function MobileBabyShowerInvite() {
                     </a>
                 </motion.div>
 
-            </div>
+                <motion.div {...fadeUp(0.7)} className="mt-3 flex w-full items-center justify-center text-center font-(family-name:--font-lato) text-[clamp(0.85rem,2.5vw,0.95rem)] tracking-[0.18em] text-[#4f5b57]">
+                    <div className="inline-flex items-center gap-1 rounded-full border border-[#365744]/15 bg-white/40 px-3 py-2 shadow-[0_4px_18px_rgba(54,87,68,0.08)] backdrop-blur-[1px]">
+                        <MdLocationPin className="shrink-0 scale-125 text-[#365744]" />
+                        <span className="whitespace-normal leading-snug">2000 Billy G Webb Dr.</span>
+                    </div>
+                </motion.div>
 
-            <div className="absolute z-30 bottom-[6%] flex w-[90%] items-center justify-center px-4 py-2 text-center font-(family-name:--font-lato) text-[clamp(0.85rem,2.5vw,0.95rem)] tracking-[0.18em] text-[#4f5b57]">
-                <div className="inline-flex items-center gap-1 rounded-full border border-[#365744]/15 bg-white/40 px-3 py-2 shadow-[0_4px_18px_rgba(54,87,68,0.08)] backdrop-blur-[1px]">
-                    <MdLocationPin className="shrink-0 scale-125 text-[#365744]" />
-                    <span className="whitespace-normal leading-snug">2000 Billy G Webb Dr.</span>
-                </div>
             </div>
 
             {/* --- BOTTOM DECORATIONS --- */}
