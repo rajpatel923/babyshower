@@ -165,7 +165,62 @@ export default function RSVPModal({ onClose }: Props) {
                 </div>
 
                 {/* Divider */}
-                <div style={{ height: '1px', background: '#e8ddd4', marginBottom: '1.25rem' }} />
+                <div style={{ height: '1px', background: '#e8ddd4', marginBottom: '1rem' }} />
+
+                {/* Call option */}
+                <div style={{
+                    background: '#f7f3ef',
+                    borderRadius: '0.75rem',
+                    padding: '0.65rem 0.85rem',
+                    marginBottom: '1.1rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.45rem',
+                }}>
+                    <p style={{
+                        fontFamily: 'var(--font-lato)',
+                        fontSize: '0.62rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.09em',
+                        textTransform: 'uppercase',
+                        color: '#a8825c',
+                        margin: 0,
+                    }}>
+                        Prefer to call?
+                    </p>
+                    <a
+                        href="tel:+13619448671"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            textDecoration: 'none',
+                            color: '#365744',
+                            fontFamily: 'var(--font-lato)',
+                            fontWeight: 600,
+                            fontSize: '0.82rem',
+                        }}
+                    >
+                        <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '1.6rem',
+                            height: '1.6rem',
+                            borderRadius: '50%',
+                            background: '#365744',
+                            flexShrink: 0,
+                        }}>
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .91h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </span>
+                        <span>
+                            <span style={{ color: '#8c6d4b', fontSize: '0.7rem', marginRight: '0.3rem' }}>Umangini</span>
+                            361-944-8671
+                        </span>
+                    </a>
+                </div>
 
                 {status === 'success' ? (
                     <div style={{ textAlign: 'center', padding: '0.75rem 0 0.5rem' }}>

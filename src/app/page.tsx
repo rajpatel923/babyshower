@@ -234,8 +234,9 @@ export default function MobileBabyShowerInvite() {
                     height={400}
                     className="absolute top-[20%] right-[-65%] pointer-events-none"
                 />
-                <motion.div className="absolute top-[40%] right-[-6%] w-[28%] max-w-[120px] z-20 rotate-[-25deg]" {...sway([-3, 3, -3], 5.5, 0.5)}>
-                    <Image src="/images/baby_cloths.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />
+                <motion.div className="absolute top-[38%] right-[-12%] w-[48%] max-w-[210px] z-20 rotate-[-20deg]" {...sway([-3, 3, -3], 5.5, 0.5)}>
+                    {/*<Image src="/images/baby_cloths.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />*/}
+                    <Image src="/images/corgi_image.png" alt="" width={150} height={200} className="w-full h-auto object-contain" />
                 </motion.div>
             </div>
 
