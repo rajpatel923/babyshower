@@ -271,11 +271,36 @@ export default function RSVPModal({ onClose }: Props) {
                             fontFamily: 'var(--font-lato)',
                             color: '#5c5c5c',
                             fontSize: '0.8rem',
-                            margin: '0 0 1.5rem',
+                            margin: '0 0 1rem',
                             lineHeight: 1.5,
                         }}>
                             We already have your response on file.
+                            <br />Need to make a change? Call or text Umangini.
                         </p>
+                        <a
+                            href="tel:+13619448671"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                background: '#f7f3ef',
+                                border: '1px solid #e8ddd4',
+                                borderRadius: '9999px',
+                                padding: '0.45rem 1.1rem',
+                                textDecoration: 'none',
+                                fontFamily: 'var(--font-lato)',
+                                fontWeight: 700,
+                                fontSize: '0.82rem',
+                                color: '#365744',
+                                marginBottom: '1rem',
+                            }}
+                        >
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#365744" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .91h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                            361-944-8671
+                        </a>
+                        <br />
                         <button
                             onClick={onClose}
                             style={{
