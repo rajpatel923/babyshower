@@ -21,7 +21,7 @@ const sway = (rotate: number[], duration: number, delay = 0) => ({
 })
 
 const fadeUp = (delay: number) => ({
-    initial: { opacity: 0, y: 15 },
+    initial: { opacity: 1, y: 15 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.8, delay, ease: 'easeOut' } satisfies Transition,
 })
